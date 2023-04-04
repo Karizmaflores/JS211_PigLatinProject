@@ -12,35 +12,29 @@ const rl = readline.createInterface({
 
 
 const pigLatin = (word) => {
-  word = .toLowerCase().trim();
+  word = word.toLowerCase().trim();
 
   let vowels = ['a', 'e', 'i', 'o', 'u'];
-  // let translation = "";
+  let letterPosition = 0;
+  
 
     //checks vowels first letter of word
-    if (vowels === word.charAt(1)){
+    if (vowels.includes(word[0])){
 
     //adds way to end of word
-    return word + "way";
-
-    //displays translation to DOM
-    document.getElementsByNameById("display-element").innerHTML = word.concat();
+    return word + "yay";
   }
   //checks if first 2 elements are non-vowels
-  else if (let  i = 0; word.length; i++) { 
-
-    // TEST if(vowels[].indexOf(word[i])).........idk
-
-    //slices first 2 elements
-    let consonants = word.slice(0,1);
-
-    //adds consonants to end and adds "ay"
-    // TEST word.shift(consonants + "ay").concat();
-
-    return word + consonants + "ay";
+  else { 
+    for (let i = 1; i < word.length; i++){
+      if (vowels.includes(word[i])){
+        letterPosition = i;
+        break;
+      }
+     }
+    return word.slice(letterPosition) + word.slice(0, letterPosition) + "ay";
   }
 }
-
 // the first function called in the program to get an input from the user
 // to run the function use the command: node main.js
 // to close it ctrl + C
